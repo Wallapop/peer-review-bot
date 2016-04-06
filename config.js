@@ -19,6 +19,7 @@ config.mergeOnReview = pe.mergeOnReview || false;
 config.oauth2token = pe.oauth2token || '';
 config.excludeLabels = pe.excludeLabels || 'no-review';
 config.filenameFilter = pe.filenameFilter || '["_posts"]';
+config.approveMatch = pe.approveMatch || ':+1:';
 
 // Setup Instructions Comment
 if (config.instructionsComment === '') {

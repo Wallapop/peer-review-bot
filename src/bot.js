@@ -159,7 +159,7 @@ function checkForApprovalComments(prNumber, callback) {
          number: prNumber,
          perPage: 99
      }, function (error, result) {
-        var lgtm = /(LGTM)|(Looks good to me!)/,
+        var lgtm = config.approveMatch,
             approvedCount = 0,
             isInstruction, approved;
 
@@ -168,9 +168,10 @@ function checkForApprovalComments(prNumber, callback) {
         }
 
         for (var i = 0; i < result.length; i++) {
-            if (result[i].body && lgtm.test(result[i].body)) {
+            if (result[i].body)) {
                 // Test if we're actually just in the instructions comment
-                isInstruction = (result[i].body.slice(1, 30).trim() === config.instructionsComment.slice(1, 30).trim());
+                var length = lgtm.length
+                isInstruction = (result[i].body.slice(1, length).trim() === lgtm);
                 approvedCount = (isInstruction) ? approvedCount : approvedCount + 1;
             }
         }
