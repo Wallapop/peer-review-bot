@@ -23,10 +23,8 @@ config.approveMatch = pe.approveMatch || ':+1:';
 
 // Setup Instructions Comment
 if (config.instructionsComment === '') {
-    var comment = 'Hi! I\'m your friendly/stabby Case Study Bot. For this case study to be labeled as "peer-reviewed", ' +
-                  'you\'ll need as least ' + config.reviewsNeeded + ' comments containing the magic phrase "LGTM" ' +
-                  '("Looks good to me" also works, for those of us that are really verbose).';
-                  
+    var comment = 'Hi! For this PR to be labeled as `CR-Approved`, ' + 'you\'ll need as least ' 
+    			  + config.reviewsNeeded + ' comments containing the magic phrase ":+1:".';
     config.instructionsComment = comment;
 }
 
